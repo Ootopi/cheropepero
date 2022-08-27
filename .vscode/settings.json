@@ -1,0 +1,8 @@
+{
+    "liveServer.settings.https": {
+        "enable": true, //set it true to enable the feature.
+        "cert": "C:\\Users\\ootop\\OneDrive\\Desktop\\projects\\websockets\\private\\certs\\localhost.crt", //full path of the certificate
+        "key": "C:\\Users\\ootop\\OneDrive\\Desktop\\projects\\websockets\\private\\certs\\localhost.key", //full path of the private key
+        "passphrase": ""
+    }
+}
