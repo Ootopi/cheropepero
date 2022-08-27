@@ -12,7 +12,8 @@ fetch(cors)
         }
     })
     .then(({campaign, csrf}) => {
-        fetch("https://malaysia.give.asia/campaign/help-raaina-aluna-nugroho-5676/activities", {
+        console.log(campaign, csrf)
+        fetch("https://api.allorigins.win/get?url=https://malaysia.give.asia/campaign/help-raaina-aluna-nugroho-5676/activities", {
             "headers": {
               "accept": "application/json, text/plain, */*",
               "accept-language": "en-US,en;q=0.9",
