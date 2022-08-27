@@ -1,5 +1,5 @@
 const uri = 'https://malaysia.give.asia/campaign/help-raaina-aluna-nugroho-5676'
-const cors = `http://api.allorigins.win/get?url=${uri}`
+const cors = `https://api.allorigins.win/get?url=${uri}`
 
 fetch(cors)
     .then(e => e.json())
