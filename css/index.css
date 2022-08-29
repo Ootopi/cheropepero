@@ -1,77 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html {
+    height: 100%;
+}
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     overflow: hidden;
-}
-
-#goals {
-    width: 100%;
-    padding: 1rem;
-    font-weight: bold;
-}
-
-#money {
-    position: relative;
-    background-color: #DDD;
-    width: 25%;
-    height: 30px;
-    margin-left: 20px;
-}
-
-#money_progress {
-    background-color: #0F0;
-}
-
-#money_progress, #money_indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-} 
-
-#money_indicator {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    font-family: 'Patrick Hand', cursive;
-    font-size: 20px;
-}
-
-#controls fieldset {
-    width: 200px;
-    font-family: 'Patrick Hand', cursive;
-}
-
-#controls fieldset option {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 1.5em;
-}
-
-#controls fieldset option:active, 
-#controls fieldset option:focus,
-#controls fieldset option:focus-visible {
-    background-color: transparent;
-    outline: 0;
-    border: 0;
-}
-
-#donation_list_fieldset {
-    border: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.5em;
-}
-
-#donation_list_fieldset legend {
-    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    grid-template-rows: 80px auto 50%;
 }
 
 ::-webkit-scrollbar {
@@ -82,78 +23,173 @@ body {
     background: transparent; 
 }
 
-#donation_list {
+#donations {
+    overflow-y: scroll;
+    height: 100%;
     background-color: transparent;
     border: 0;
     scrollbar-color: transparent;
+    padding: 20px;
+    justify-self: right;
+    font-size: 1.5rem;
 }
 
-#donation_list, #alert_list {
-    width: 100%;
+.donation {
+    position: relative;
+    margin-bottom: 1em;
+    user-select: none;
+    display: flex;
+    animation: slide ease .5s forwards 1.2s;
+    opacity: 0;
 }
 
-#controls fieldset {
+@keyframes slide {
+    0% {transform: translateX(-300px);}
+    100% {transform: translateX(0px);opacity:1;}
+ }
+
+.donation-amount {
     display: inline-block;
-    height: 100%;
-    outline: none;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #EEE;
+    text-align: right;
+    padding-right: 10px;
 }
 
-#controls fieldset select:focus-visible {
-    outline: none;
-    border: 0;
+.donor-name {
+    display: inline-block;
+    font-weight: bold;
+    color: #FFF;
+    text-shadow: 1px 1px #000;
+    padding-right: 10px;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.donation-time-since {
+    color: #AAA;
+    margin-left: 0.5rem;
+    text-align: right;
+    flex-grow: 1;
+}
+
+#donation-bar {
+    position: relative;
+    background-color: #DDD;
+    width: 40%;
+    min-height: 40px;
+    text-align: right;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    box-sizing: content-box;
+    margin: 10px auto;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+#donation-bar, #donation-bar .progress {
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+#donation-bar .progress {
+    height: 100%;
+    transition: width 0.5s ease-out;
+    width: 0;
+    background-image: linear-gradient(267deg, rgb(236, 112, 112), rgb(239, 169, 109));
+    text-align: center;
+    color: white;
+    position: absolute;
+    left: 0;
+}
+
+#donation-bar .status {
+    position: relative;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+#donation-alert-wrapper {
+    display: block;
+    align-self: center;
+}
+
+#donation-alert .image {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    background-position: center middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 1rem;
+}
+
+#donation-alert .image.panda {
+    background-image: url('../media/panda_clap.gif');
+}
+
+#donation-alert .image.gasp {
+    background-image: url('../media/chero-gasp.gif');
+}
+
+#donation-alert .image.jam {
+    background-image: url('../media/panda_jam.gif');
+}
+
+#donation-alert .image.bunny {
+    background-image: url('../media/bunny.webp');
 }
 
 #donation-alert {
     display: block;
-    background-color: #1e1e1e;
-    margin: 2rem;
+    /* background-color: #1e1e1ea8; */
+    width: fit-content;
     padding: 2rem;
     text-align: center;
-    font-size: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3vmin;
+    text-shadow: 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black,0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black,0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black,0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black, 0 0 5px black;
     font-weight: bold;
     color: #FFF;
     border-radius: 0.5rem;
     align-self: center;
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    background-position-x: 5%;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 50%;
 }
 
 #donation-alert .name {
     color: #cd88fb;
-    font-family: 'Patrick Hand', cursive;
 }
 
 #donation-alert .amount {
     color: #cd88fb;
-    font-family: 'Patrick Hand', cursive;
-}
-
-#donation-alert .amount {
-    color: #cd88fb;
-    font-family: 'Patrick Hand', cursive;
 }
 
 #donation-alert .message {
     display: block;
     margin: 1rem 2rem 0;
-    font-size: 1.5rem;
+    font-size: 2vmin;
     font-weight: normal;
 }
 
-#skip, #reset {
-    user-select: none;
-}
-
-#skip:hover, #reset:hover {
-    cursor: pointer;
-    background-color: #ccc;
+.hidden {
+    visibility: hidden;
 }
 
 .pulse {
     animation: appear 10s linear;
-}
-
-.hidden {
-    display: none !important;
 }
 
 .reset {
@@ -167,10 +203,4 @@ body {
     5% { transform: scale(1); }
     95% { opacity: 1; }
     100% { opacity: 0; }
-}
-
-#controls {
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
