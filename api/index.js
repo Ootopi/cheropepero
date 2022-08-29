@@ -1,5 +1,5 @@
 const proxy = uri => `https://corsproxy.io?${uri}`
-const base_uri = proxy(' https://give.asia/campaign/spark-the-change-join-cheropepero-in-supporting-sos')
+const base_uri = proxy('https://give.asia/campaign/spark-the-change-join-cheropepero-in-supporting-sos')
 const activities_uri = `${base_uri}/activities`
 
 const div = _ => document.createElement('div')
