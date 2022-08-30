@@ -120,6 +120,10 @@ function update() {
     return get_campaign_data().then(({campaign}) => {
         console.log('stopped updating', Date.now(), campaign.donationCount, donations.length)
         if(campaign.donationCount > donations.length + discrepency) {
+            const percentage = (campaign.totalDonationAmountCents + campaign.offlineAmountCents) / campaign.targetAmountCents * 100
+            dom_donation_progress.style.width = `${Math.min(100, percentage)}%`
+            dom_donation_status.innerHTML = `<b>${((campaign.totalDonationAmountCents+campaign.offlineAmountCents)/100).toLocaleString()} ${campaign.currency}</b> ${(campaign.offlineAmountCents ? `(inc. ${(campaign.offlineAmountCents/100).toLocaleString()} ${campaign.currency} offline) ` : '')}of ${(campaign.targetAmountCents/100).toLocaleString()} ${campaign.currency} raised`
+            
             const difference = campaign.donationCount - (donations.length + discrepency)
             console.log('fetching new donations', difference)
             get_donation_data(difference).then((e) => {
