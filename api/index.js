@@ -1,5 +1,5 @@
 const proxy = uri => `https://corsproxy.io?${uri}`
-const base_uri = proxy('https://give.asia/campaign/chero-celebrates-her-birthday-with-project-green-ribbon')
+const base_uri = proxy('https://give.asia/campaign/help-my-extreme-premature-baby-yong-chen')
 const activities_uri = `${base_uri}/activities`
 
 const div = _ => document.createElement('div')
@@ -256,7 +256,7 @@ function trigger() {
     dom_donation_alert.parentNode.replaceChild(new_node, dom_donation_alert)
     dom_donation_alert = new_node
 
-    const possible_images = ['panda', 'gasp', 'jam', 'bunny']
+    const possible_images = ['panda', 'gasp', 'jam', 'bunny', 'hearts']
     const random_image = Math.floor(Math.random() * possible_images.length)
     possible_images.forEach((x, i) => {
         dom_donation_image.classList.toggle(x, i == random_image)

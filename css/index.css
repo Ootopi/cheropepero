@@ -145,6 +145,10 @@ body {
     background-image: url('../media/panda_jam.gif');
 }
 
+#donation-alert .image.hearts {
+    background-image: url('../media/chero-fingerhearts.gif');
+}
+
 #donation-alert .image.bunny {
     background-image: url('../media/bunny.webp');
 }
