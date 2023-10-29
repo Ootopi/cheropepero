@@ -1,5 +1,5 @@
 const proxy = uri => `https://corsproxy.io?${uri}`
-const base_uri = proxy('https://give.asia/campaign/spark-the-change-join-cheropepero-in-supporting-sos')
+const base_uri = proxy('https://give.asia/campaign/chero-celebrates-her-birthday-with-project-green-ribbon')
 const activities_uri = `${base_uri}/activities`
 
 const div = _ => document.createElement('div')
@@ -92,10 +92,6 @@ get_campaign_data()
         console.log(`Campaign started on ${new Date(campaign.publishedAt * 1000)}`)
         console.log(`Total donations: ${campaign.donationCount}`)
         console.log(`${campaign.totalDonationAmountCents/100} ${campaign.currency} / ${campaign.targetAmountCents/100} ${campaign.currency} raised`)
-        console.log(`Donation Packages`)
-        campaign.donationPackages.forEach(({amountCents, summary, description}) => {
-            console.log(`\t${amountCents / 100} ${campaign.currency}\t${summary}\t${description}`)
-        })
 
         const percentage = (campaign.totalDonationAmountCents + campaign.offlineAmountCents) / campaign.targetAmountCents * 100
         dom_donation_progress.style.width = `${Math.min(100, percentage)}%`
