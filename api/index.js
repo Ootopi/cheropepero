@@ -1,5 +1,5 @@
 const proxy = uri => `https://corsproxy.io?${uri}`
-const base_uri = proxy('https://give.asia/campaign/help-my-extreme-premature-baby-yong-chen')
+const base_uri = proxy('https://give.asia/campaign/help-https://give.asia/campaign/chero-celebrates-her-birthday-with-project-green-ribbon')
 const activities_uri = `${base_uri}/activities`
 
 const div = _ => document.createElement('div')
